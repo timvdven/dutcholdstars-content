@@ -1,0 +1,20 @@
+backend:
+  name: turbo-github
+  turbo_site_id: "bbbf44fc-e73b-44f0-a132-2c3e6b595041"
+  branch: main
+
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: nieuws
+    label: Nieuws
+    folder: content/nieuws
+    create: true
+    format: json
+    extension: json
+    slug: "{{slug}}"
+    fields:
+      - { label: Titel, name: title, widget: string }
+      - { label: Tekst, name: body, widget: markdown }
+      - { label: Foto, name: image, widget: image, required: false }
