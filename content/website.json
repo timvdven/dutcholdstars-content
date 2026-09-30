@@ -1,8 +1,29 @@
 {
   "title": "Dutch Old Stars",
-  "seo": {},
-  "noscript": "",
+  "seo": {
+    "title": "sdf",
+    "description": "xcvvcx",
+    "keywords": [
+      "asd",
+      "adsas",
+      "dfgfdg"
+    ]
+  },
+  "noscript": "adsf",
   "header": {},
-  "footer": {},
-  "pages": []
+  "footer": {
+    "text": "huh"
+  },
+  "pages": [
+    {
+      "title": "sdf",
+      "body": "asdf",
+      "slug": "sdf"
+    },
+    {
+      "title": "zxcv",
+      "body": "zxvc",
+      "slug": "xcvv"
+    }
+  ]
 }
