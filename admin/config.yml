@@ -7,14 +7,57 @@ media_folder: uploads
 public_folder: /uploads
 
 collections:
-  - name: nieuws
-    label: Nieuws
-    folder: content/nieuws
-    create: true
-    format: json
-    extension: json
-    slug: "{{slug}}"
-    fields:
-      - { label: Titel, name: title, widget: string }
-      - { label: Tekst, name: body, widget: markdown }
-      - { label: Foto, name: image, widget: image, required: false }
+  - name: website
+    label: Website
+    files:
+      - name: website
+        label: Website
+        file: content/website.json
+        format: json
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - label: SEO
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Meta titel, name: title, widget: string, required: false, hint: "Leeg laten om de titel te gebruiken" }
+              - { label: Meta omschrijving, name: description, widget: text, required: false, hint: "Ideaal 120–160 tekens" }
+              - { label: Keywords, name: keywords, widget: list, required: false }
+              - { label: Deel-afbeelding (Open Graph), name: image, widget: image, required: false }
+              - { label: Canonical URL, name: canonical, widget: string, required: false }
+              - { label: Niet indexeren, name: noindex, widget: boolean, default: false, required: false }
+          - label: No-script
+            name: noscript
+            widget: text
+            required: false
+            hint: "Inhoud die getoond wordt als JavaScript uitgeschakeld is (HTML toegestaan)"
+          - label: Header
+            name: header
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Logo, name: logo, widget: image, required: false }
+              - { label: Tekst, name: text, widget: markdown, required: false }
+          - label: Footer
+            name: footer
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Tekst, name: text, widget: markdown, required: false }
+          - label: Pagina's
+            name: pages
+            label_singular: Pagina
+            widget: list
+            required: false
+            collapsed: true
+            hint: "Sleep om de volgorde te wijzigen"
+            summary: "{{fields.title}} (/{{fields.slug}})"
+            fields:
+              - { label: Titel, name: title, widget: string }
+              - label: Slug
+                name: slug
+                widget: string
+                hint: "Deel van de URL, bijv. over-ons"
+                pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Alleen kleine letters, cijfers en koppeltekens"]
+              - { label: Inhoud, name: body, widget: markdown }
